@@ -1,21 +1,86 @@
-🎓 Placement Drive Management (ServiceNow Scoped App)
+🎓 Placement Drive Management — ServiceNow Scoped App
 
-A custom end-to-end scoped application built on ServiceNow (App Engine) to digitally transform and automate the campus placement process.
+A custom end-to-end scoped application built on ServiceNow App Engine to digitally transform and automate the campus placement process.
 
 🚀 Key Features & Architecture
-Relational Data Model: Engineered a custom schema within a dedicated scope (x_snc_placement) featuring interconnected tables for Companies, Students, Job Postings, and Applications.
-Advanced Security (ACLs): Implemented strict Role-Based Access Control (RBAC) using custom roles and Scripted Row-Level ACLs (gs.getUser().getEmail()) to ensure data privacy.
-Service Catalog & UX: Designed a frictionless frontend intake form that uses platform session data (caller_id) for dynamic identity resolution, eliminating manual data entry.
-Flow Designer Automation: Built a zero-code backend pipeline that triggers upon catalog submission, dynamically cross-references user records, and auto-generates application junction records.
-Platform Analytics: Configured real-time executive dashboards (Pie, Bar, Donut, and KPI Score widgets) to track placement pipelines and company-wise metrics.
+1. Relational Data Model
+
+Engineered a custom relational schema within a dedicated ServiceNow scope (x_snc_placement) featuring interconnected tables for:
+
+Companies
+Students
+Job Postings
+Applications
+2. Advanced Security (ACLs)
+
+Implemented strict Role-Based Access Control (RBAC) using custom roles and Scripted Row-Level ACLs with gs.getUser().getEmail() to ensure data privacy and prevent unauthorized access to student application records.
+
+3. Service Catalog & UX
+
+Designed a frictionless frontend intake form using platform session data (caller_id) for dynamic identity resolution, eliminating the need for manual student information entry.
+
+4. Flow Designer Automation
+
+Built a zero-code backend automation pipeline triggered upon catalog submission. The flow dynamically cross-references user records and automatically generates the required Application junction records.
+
+5. Platform Analytics
+
+Configured real-time executive dashboards using:
+
+Pie Charts
+Bar Charts
+Donut Charts
+KPI Score Widgets
+
+These dashboards provide insights into placement pipelines, application status, and company-wise recruitment metrics.
 
 🔐 Security & Access Control (RBAC)
-Placement Officer: Full CRUD (Create, Read, Update, Delete) access across all system tables (Company, Job Posting, Student, Application).
-HR Recruiter: CRUD access to Job Postings and Applications. Read-only access to Company and Student records.
-Student: Read-only access to Job Postings. Read and Write access to the Application table is strictly limited to their own submitted records. No access to Company or other Student records.
+
+The application implements role-based permissions to ensure that each user can access only the data required for their responsibilities.
+
+👨‍💼 Placement Officer
+Company: Full CRUD access
+Job Posting: Full CRUD access
+Student: Full CRUD access
+Application: Full CRUD access
+🧑‍💼 HR Recruiter
+Company: Read-only access
+Job Posting: Full CRUD access
+Student: Read-only access
+Application: Full CRUD access
+🎓 Student
+Company: No access
+Job Posting: Read-only access
+Student: No access to other student records
+Application: Read and Write access restricted to their own submitted records only
+
+CRUD = Create, Read, Update, Delete
 
 🛠️ Tech Stack & Skills
-Platform Ecosystem: ServiceNow App Engine, Platform Analytics
-Architecture: Scoped Applications, Relational Database Design
-Security: Access Control Lists (ACLs), Role-Based Access Control (RBAC)
-Workflow Automation: Flow Designer, Service Catalog, Process Engine
+Platform Ecosystem
+ServiceNow App Engine
+ServiceNow Platform Analytics
+Architecture
+Scoped Applications
+Relational Database Design
+Custom Application Tables
+Security
+Access Control Lists (ACLs)
+Role-Based Access Control (RBAC)
+Scripted Row-Level ACLs
+User-Based Data Restriction
+Workflow Automation
+Flow Designer
+Service Catalog
+Process Engine
+Automated Record Creation
+User Experience
+Service Catalog Forms
+Dynamic User Identity Resolution
+caller_id Session Data
+Analytics
+Executive Dashboards
+Pie Charts
+Bar Charts
+Donut Charts
+KPI Score Widgets
